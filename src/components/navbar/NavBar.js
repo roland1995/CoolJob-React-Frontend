@@ -33,13 +33,13 @@ export const NavBar = () => {
 	return (
 		<Header>
 			<StyledLink to="/main" activeClassName="selected">
-				<Div className="navBarDivStyle">Main</Div>
+				<Div>Main</Div>
 			</StyledLink>
 			<StyledLink to="/jobs" activeClassName="selected">
-				<Div className="navBarDivStyle">Jobs</Div>
+				<Div>Jobs</Div>
 			</StyledLink>
 			<StyledLink to="/fav" activeClassName="selected">
-				<Div className="navBarDivStyle">Favorites</Div>
+				<Div>Favorites</Div>
 			</StyledLink>
 		</Header>
 	);
