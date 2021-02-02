@@ -19,6 +19,8 @@ export const NavBar = () => {
 					<Link to="/fav">Favorites</Link>
 				</Menu.Item>
 			</Menu>
-    </Header>
+		</Header>
 	);
 };
+
+export default NavBar;
