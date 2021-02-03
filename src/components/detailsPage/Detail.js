@@ -14,7 +14,7 @@ export const Detail = () => {
 		marginLeft: 'auto',
 		marginRight: 'auto',
 		marginTop: '8px',
-		width: '40%',
+		width: '500px',
 	};
 
 	return (
@@ -36,15 +36,17 @@ export const Detail = () => {
 				<h1 style={{ color: '#F5FFFA' }}>{detail.title}</h1>
 			</Header>
 			<Content>
-				<Image style={StyleImage} src={detail.logo} />
+				<div style={{ paddingRight: '400px', paddingLeft: '400px' }}>
+					<Image style={StyleImage} src={detail.logo} />
+				</div>
 				<div style={{ margin: '20px' }}>
 					<h2>Company name: {detail.company}</h2>
 					<h3>Job title: {detail.type}</h3>
 					<h3>Job location: {detail.location}</h3>
 					<h4>company page: {detail.companyUrl}</h4>
-					<td dangerouslySetInnerHTML={{ __html: detail.apply }} />
+					<p dangerouslySetInnerHTML={{ __html: detail.apply }} />
 					<h4>descritpiton:</h4>
-					<td
+					<p
 						dangerouslySetInnerHTML={{ __html: detail.description }}
 					/>
 				</div>
