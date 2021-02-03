@@ -4,6 +4,7 @@ import { JobProvider } from "./Contexts/JobContext";
 
 import NavBar from "./components/navbar/NavBar";
 import Main from "./components/mainPage/Main";
+import JobsBox from "./components/jobsPage/JobsBox"
 
 const App = () => {
 	return (
@@ -18,7 +19,7 @@ const App = () => {
 							<Redirect to="/main" />
 						</Route>
 						<Route path="/main" render={(props) => <Main />} />
-						<Route path="/jobs" />
+						<Route path="/jobs"  component={() => <JobsBox />}/>
 						<Route path="/fav" />
 					</div>
 				</div>

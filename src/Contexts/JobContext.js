@@ -1,5 +1,5 @@
-import React, { createContext } from "react";
-import { GetApiData } from "../hook/GetApiData";
+import React, { createContext } from 'react';
+import { GetApiData } from '../hook/GetApiData';
 
 export const JobContext = createContext();
 
