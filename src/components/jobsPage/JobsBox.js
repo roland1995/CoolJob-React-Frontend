@@ -1,4 +1,4 @@
-import FilterBar from "../filterbar/FilterBar";
+import FilterBar from '../filterbar/FilterBar';
 import React, { useContext } from 'react';
 import JobsList from './JobsList';
 import styled from 'styled-components';
@@ -24,20 +24,16 @@ export const JobsBox = () => {
 	`;
 
 	const MainDiv = styled.div`
-		display: grid;
-		margin: 50px auto;
-		grid-template-columns: 1fr 5fr;
-		grid-row-gap: 10px;
-		grid-column-gap: 10px;
+		background-color: black;
 	`;
-  
-  	const Div = styled.div`
+
+	const Div = styled.div`
 		position: fixed;
 	`;
 
 	return (
 		<MainDiv>
-    	<div>
+			<div style={{ float: 'left' }}>
 				<Div>
 					<FilterBar />
 				</Div>
@@ -52,7 +48,6 @@ export const JobsBox = () => {
 			</StyledDiv>
 			<BackTop />
 		</MainDiv>
-
 	);
 };
 export default JobsBox;

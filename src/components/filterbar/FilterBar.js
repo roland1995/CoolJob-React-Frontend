@@ -1,12 +1,11 @@
-import React from "react";
-import "antd/dist/antd.css";
-import { Menu } from "antd";
-import styled from "styled-components";
+import React from 'react';
+import 'antd/dist/antd.css';
+import { Menu } from 'antd';
+import styled from 'styled-components';
 
 export const FilterBar = () => {
 	const StyledMenu = styled(Menu)`
-		width: 300px;
-	`;
+	width = 250px`;
 
 	const P = styled.p`
 		font-size: 24px;
@@ -25,10 +24,10 @@ export const FilterBar = () => {
 	`;
 
 	const Select = styled.select`
-		width: 150px;
+		width: 80%;
 		margin: 10px;
 		&:focus {
-			min-width: 150px;
+			min-width: 80%;
 			width: auto;
 		}
 	`;
@@ -45,29 +44,29 @@ export const FilterBar = () => {
 				</Div>
 				<Div>
 					<P>Date</P>
-					<Label for="From">From</Label>
-					<Select id="From">
+					<Label for='From'>From</Label>
+					<Select id='From'>
 						<Option>date</Option>
 						<Option>date</Option>
 					</Select>
 					<br />
-					<Label for="To">To</Label>
-					<Select id="To">
+					<Label for='To'>To</Label>
+					<Select id='To'>
 						<Option>date</Option>
 						<Option>date</Option>
 					</Select>
 				</Div>
 				<Div>
 					<P>Location</P>
-					<input type="text" />
+					<input type='text' />
 				</Div>
 				<Div>
 					<P>Company</P>
-					<input type="text" />
+					<input type='text' />
 				</Div>
 				<Div>
 					<P>Position</P>
-					<input type="text" />
+					<input type='text' />
 				</Div>
 			</StyledMenu>
 		</div>

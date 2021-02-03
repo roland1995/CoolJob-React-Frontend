@@ -20,7 +20,6 @@ export const Detail = () => {
 	return (
 		<Layout>
 			<Header style={{ color: '#F5FFFA', backgroundColor: '#000080' }}>
-				<h1 style={{ color: '#F5FFFA' }}>{detail.title}</h1>
 				<Button
 					style={{
 						color: 'white',
@@ -34,6 +33,7 @@ export const Detail = () => {
 				>
 					Back to jobs
 				</Button>
+				<h1 style={{ color: '#F5FFFA' }}>{detail.title}</h1>
 			</Header>
 			<Content>
 				<Image style={StyleImage} src={detail.logo} />
