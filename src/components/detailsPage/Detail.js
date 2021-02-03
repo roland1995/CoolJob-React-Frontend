@@ -13,7 +13,7 @@ export const Detail = () => {
 		display: 'block',
 		marginLeft: 'auto',
 		marginRight: 'auto',
-		marginTop: '5px',
+		marginTop: '8px',
 		width: '40%',
 	};
 
@@ -37,8 +37,16 @@ export const Detail = () => {
 			</Header>
 			<Content>
 				<Image style={StyleImage} src={detail.logo} />
-				<div>
-					<h3>{detail.company}</h3>
+				<div style={{ margin: '20px' }}>
+					<h2>Company name: {detail.company}</h2>
+					<h3>Job title: {detail.type}</h3>
+					<h3>Job location: {detail.location}</h3>
+					<h4>company page: {detail.companyUrl}</h4>
+					<td dangerouslySetInnerHTML={{ __html: detail.apply }} />
+					<h4>descritpiton:</h4>
+					<td
+						dangerouslySetInnerHTML={{ __html: detail.description }}
+					/>
 				</div>
 			</Content>
 			<Footer>Added at : {detail.date}</Footer>
