@@ -9,6 +9,7 @@ const StickyHeader = styled.header`
 	top: 0;
 	left: 0;
 	width: 100%;
+	z-index: 1;
 `;
 
 export const NavBar = () => {
@@ -17,7 +18,7 @@ export const NavBar = () => {
 	return (
 		<Header className="header">
 			<StickyHeader>
-				<Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+				<Menu theme="dark" mode="horizontal">
 					<Menu.Item key="1">
 						<Link to="/main">Main</Link>
 					</Menu.Item>
