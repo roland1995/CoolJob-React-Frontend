@@ -1,9 +1,14 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import { Menu } from 'antd';
-import styled from 'styled-components';
+import React, { useContext } from "react";
+import { JobContext } from "../../Contexts/JobContext";
+import "antd/dist/antd.css";
+import { Menu } from "antd";
+import styled from "styled-components";
 
 export const FilterBar = () => {
+	const [jobs] = useContext(JobContext);
+	const types = jobs.map((job) => job.type);
+	const uniqueTypes = [...new Set(types)];
+
 	const StyledMenu = styled(Menu)`
 	width = 250px`;
 
@@ -38,8 +43,9 @@ export const FilterBar = () => {
 				<Div>
 					<P>Type</P>
 					<Select>
-						<Option>type</Option>
-						<Option>type</Option>
+						{uniqueTypes.map((type) => (
+							<Option value={type}>{type}</Option>
+						))}
 					</Select>
 				</Div>
 				<Div>
