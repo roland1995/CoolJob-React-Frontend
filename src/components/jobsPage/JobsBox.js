@@ -1,27 +1,34 @@
-import React from 'react';
+import React from "react";
 import JobsList from "./JobsList";
-import styled from 'styled-components';
-import { BackTop } from 'antd';
+import styled from "styled-components";
+import FilterBar from "../filterbar/FilterBar";
+import { BackTop } from "antd";
 
 export const JobsBox = () => {
-
-	const StyledDiv = styled.div`
-        padding: 30px;
-        width: 85%;
-        float:right;
+	const DivContainer = styled.div`
+		display: grid;
+		margin: 50px auto;
+		grid-template-columns: 1fr 5fr;
+		grid-row-gap: 10px;
+		grid-column-gap: 10px;
 	`;
 
-    const MainDiv = styled.div`
-        background: black;
+	const Div = styled.div`
+		position: fixed;
 	`;
 
 	return (
-        <MainDiv>
-            <StyledDiv>
-                <JobsList />		
-            </StyledDiv>
-            <BackTop />
-        </MainDiv>
+		<DivContainer>
+			<div>
+				<Div>
+					<FilterBar />
+				</Div>
+			</div>
+			<div>
+				<JobsList />
+				<BackTop />
+			</div>
+		</DivContainer>
 	);
-}
-export default JobsBox
+};
+export default JobsBox;
