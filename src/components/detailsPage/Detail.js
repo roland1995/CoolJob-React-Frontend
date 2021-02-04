@@ -8,11 +8,10 @@ import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext'
 import { OnJobContext } from '../../Contexts/OnJobContext';
 
 export const Detail = () => {
-	const [favoriteJobs, setFavoriteJobs] = useContext(FavoriteJobContext);
-	const [onJob, setOnJob] = useContext(OnJobContext);
-	const [visibility, setVisibility] = useContext(DetailVisibilityContext);
+	const { visible } = useContext(DetailVisibilityContext);
+	const { setVisible } = useContext(DetailVisibilityContext);
 	const { Header, Footer, Content } = Layout;
-	const [detail] = useContext(JobDetailContext);
+	const { detail } = useContext(JobDetailContext);
 
 	const StyleImage = {
 		display: 'block',
@@ -42,9 +41,7 @@ export const Detail = () => {
 							marginTop: '15px',
 							float: 'right',
 						}}
-						onClick={() =>
-							visibility === true ? setVisibility(false) : setVisibility(true)
-						}
+						onClick={() => (visible === true ? setVisible(false) : setVisible(true))}
 					>
 						Back to jobs
 					</Button>
@@ -59,7 +56,7 @@ export const Detail = () => {
 					<h2>Company name: {detail.company}</h2>
 					<h3>Job title: {detail.type}</h3>
 					<h3>Job location: {detail.location}</h3>
-					<h4>
+					<h4>=
 						company page: <a href={detail.company_url}>{detail.company_url}</a>
 					</h4>
 					<p dangerouslySetInnerHTML={{ __html: detail.apply }} />

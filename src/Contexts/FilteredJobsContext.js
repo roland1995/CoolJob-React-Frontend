@@ -6,7 +6,7 @@ export const FilteredJobProvider = (props) => {
 	const [filteredJobs, setFilteredJobs] = useState([]);
 
 	return (
-		<FilteredJobContext.Provider value={[filteredJobs, setFilteredJobs]}>
+		<FilteredJobContext.Provider value={{ filteredJobs, setFilteredJobs }}>
 			{props.children}
 		</FilteredJobContext.Provider>
 	);

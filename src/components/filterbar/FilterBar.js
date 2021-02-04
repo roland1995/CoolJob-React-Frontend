@@ -6,12 +6,12 @@ import { FilteredJobContext } from '../../Contexts/FilteredJobsContext';
 import { JobContext } from '../../Contexts/JobContext';
 
 export const FilterBar = React.memo(() => {
-	const [jobs] = useContext(JobContext);
-	const [filteredJobs, setFilteredJobs] = useContext(FilteredJobContext);
+	const { jobs } = useContext(JobContext);
+	const { setFilteredJobs } = useContext(FilteredJobContext);
 
 	useEffect(() => {
 		setFilteredJobs(jobs);
-	}, []);
+	}, [setFilteredJobs, jobs]);
 
 	const uniqueCompanies = [...new Set(jobs.map((job) => job.company))];
 	const uniqueTypes = [...new Set(jobs.map((job) => job.type))];
@@ -49,10 +49,6 @@ export const FilterBar = React.memo(() => {
 
 	const StyledMenu = styled(Menu)`
 		width: 200px;
-	`;
-
-	const P = styled.p`
-		font-size: 24px;
 	`;
 
 	const Div = styled.div`

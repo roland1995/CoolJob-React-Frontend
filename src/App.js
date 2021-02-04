@@ -30,9 +30,9 @@ const App = () => {
                       <Route exact path='/'>
                         <Redirect to='/main' />
                       </Route>
-                      <Route path='/main' render={(props) => <Main />} />
-                      <Route path='/jobs' component={() => <JobsBox />} />
-                      <Route path='/favorite' component={() => <FavoriteBox />} />
+                      <Route path='/main' component={Main}} />
+                      <Route path='/jobs' component={JobsBox} />
+                      <Route path='/favorite' component={FavoriteBox} />
                     </div>
                   </div>
                 </JobProvider>

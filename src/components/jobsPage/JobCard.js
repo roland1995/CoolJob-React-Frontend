@@ -8,9 +8,9 @@ import { JobDetailContext } from '../../Contexts/JobDetailContext';
 import { OnJobContext } from '../../Contexts/OnJobContext';
 
 export const JobCard = (props) => {
-	const [value, setValue] = useContext(DetailVisibilityContext);
-	const [detail, setDetail] = useContext(JobDetailContext);
-	const [onJob] = useContext(OnJobContext);
+	const { visible } = useContext(DetailVisibilityContext);
+	const { setVisible } = useContext(DetailVisibilityContext);
+	const { setDetail } = useContext(JobDetailContext);
 	const { Meta } = Card;
 
 	const StyledImage = styled.img`
@@ -26,7 +26,7 @@ export const JobCard = (props) => {
 		<Col style={{ padding: '15px' }} span={6}>
 			<Link
 				onClick={() => (
-					value === true ? setValue(false) : setValue(true), setDetail(props)
+					visible === true ? setVisible(false) : setVisible(true), setDetail(props)
 				)}
 				to={onJob == true ? '/jobs/detail/' + props.id : '/favorite/detail/' + props.id}
 			>

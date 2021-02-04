@@ -7,7 +7,7 @@ import DetailBox from '../detailsPage/DetailBox';
 import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 
 export const JobsBox = () => {
-	const [value] = useContext(DetailVisibilityContext);
+	const { value } = useContext(DetailVisibilityContext);
 
 	const StyledDiv = styled.div`
 		width: 85%;

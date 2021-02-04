@@ -4,7 +4,7 @@ import JobCard from './JobCard';
 import { Row } from 'antd';
 
 export const JobsList = () => {
-	const [filteredJobs] = useContext(FilteredJobContext);
+	const { filteredJobs } = useContext(FilteredJobContext);
 
 	return (
 		<Row gutter={16}>

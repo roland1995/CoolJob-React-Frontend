@@ -5,7 +5,7 @@ export const JobDetailContext = createContext();
 export const JobDetailProvider = (props) => {
 	const [detail, setDetail] = useState([]);
 	return (
-		<JobDetailContext.Provider value={[detail, setDetail]}>
+		<JobDetailContext.Provider value={{ detail, setDetail }}>
 			{props.children}
 		</JobDetailContext.Provider>
 	);

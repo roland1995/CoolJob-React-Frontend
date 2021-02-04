@@ -16,7 +16,7 @@ const StickyHeader = styled.header`
 
 export const NavBar = () => {
 	const { Header } = Layout;
-	const [value, setValue] = useContext(DetailVisibilityContext);
+	const { setVisible } = useContext(DetailVisibilityContext);
 	const [onJob, setOnJob] = useContext(OnJobContext);
 
 	return (
@@ -27,7 +27,7 @@ export const NavBar = () => {
 						<Link to='/main'>Main</Link>
 					</Menu.Item>
 					<Menu.Item key='2'>
-						<Link to='/jobs' onClick={() => (setValue(false), setOnJob(true))}>
+						<Link to='/jobs' onClick={() => (setVisible(false), setOnJob(true))}>
 							Jobs
 						</Link>
 					</Menu.Item>
