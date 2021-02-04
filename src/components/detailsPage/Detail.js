@@ -61,7 +61,7 @@ export const Detail = () => {
 						}}
 						onClick={() => (visible === true ? setVisible(false) : setVisible(true))}
 					>
-						Back to jobs
+						{onJob === true ? 'Back to Jobs' : 'Back to favorites'}
 					</Button>
 				</Link>
 				<h1 style={{ color: '#F5FFFA' }}>{detail.title}</h1>
