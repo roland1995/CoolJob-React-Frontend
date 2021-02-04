@@ -1,16 +1,14 @@
-
-import React, { useContext } from "react";
-import { JobContext } from "../../Contexts/JobContext";
-import JobCard from "./JobCard";
-import { Row } from "antd";
-
+import React, { useContext } from 'react';
+import { FilteredJobContext } from '../../Contexts/FilteredJobsContext';
+import JobCard from './JobCard';
+import { Row } from 'antd';
 
 export const JobsList = () => {
-	const [jobs] = useContext(JobContext);
+	const [filteredJobs] = useContext(FilteredJobContext);
 
 	return (
 		<Row gutter={16}>
-			{jobs.map((job) => (
+			{filteredJobs.map((job) => (
 				<JobCard
 					key={job.id}
 					id={job.id}
@@ -20,7 +18,6 @@ export const JobsList = () => {
 					location={job.location}
 					logo={job.company_logo}
 					company={job.company}
-
 					apply={job.how_to_apply}
 					companyUrl={job.company_url}
 					description={job.description}
