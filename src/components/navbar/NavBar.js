@@ -32,7 +32,7 @@ export const NavBar = () => {
 						</Link>
 					</Menu.Item>
 					<Menu.Item key='3'>
-						<Link to='/favorite' onClick={() => (setValue(false), setOnJob(false))}>
+						<Link to='/favorite' onClick={() => (setVisible(false), setOnJob(false))}>
 							Favorites
 						</Link>
 					</Menu.Item>

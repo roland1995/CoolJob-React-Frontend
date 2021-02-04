@@ -12,6 +12,8 @@ export const Detail = () => {
 	const { setVisible } = useContext(DetailVisibilityContext);
 	const { Header, Footer, Content } = Layout;
 	const { detail } = useContext(JobDetailContext);
+	const [favoriteJobs, setFavoriteJobs] = useContext(FavoriteJobContext);
+	const [onJob, setOnJob] = useContext(OnJobContext);
 
 	const StyleImage = {
 		display: 'block',
@@ -56,8 +58,8 @@ export const Detail = () => {
 					<h2>Company name: {detail.company}</h2>
 					<h3>Job title: {detail.type}</h3>
 					<h3>Job location: {detail.location}</h3>
-					<h4>=
-						company page: <a href={detail.company_url}>{detail.company_url}</a>
+					<h4>
+						= company page: <a href={detail.company_url}>{detail.company_url}</a>
 					</h4>
 					<p dangerouslySetInnerHTML={{ __html: detail.apply }} />
 					<h4>descritpiton:</h4>
@@ -79,9 +81,7 @@ export const Detail = () => {
 					Add to favorites
 				</Button>
 				<Link
-					onClick={() =>
-						visibility === true ? setVisibility(false) : setVisibility(true)
-					}
+					onClick={() => (visible === true ? setVisible(false) : setVisible(true))}
 					to={'/favorite'}
 					style={{ display: `${onJob === true ? 'none' : 'block'}` }}
 				>

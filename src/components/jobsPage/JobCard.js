@@ -11,6 +11,7 @@ export const JobCard = (props) => {
 	const { visible } = useContext(DetailVisibilityContext);
 	const { setVisible } = useContext(DetailVisibilityContext);
 	const { setDetail } = useContext(JobDetailContext);
+	const [onJob] = useContext(OnJobContext);
 	const { Meta } = Card;
 
 	const StyledImage = styled.img`
@@ -28,7 +29,7 @@ export const JobCard = (props) => {
 				onClick={() => (
 					visible === true ? setVisible(false) : setVisible(true), setDetail(props)
 				)}
-				to={onJob == true ? '/jobs/detail/' + props.id : '/favorite/detail/' + props.id}
+				to={onJob === true ? '/jobs/detail/' + props.id : '/favorite/detail/' + props.id}
 			>
 				<Card
 					headStyle={{ textAlign: 'center' }}
