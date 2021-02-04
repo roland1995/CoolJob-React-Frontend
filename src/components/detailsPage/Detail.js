@@ -42,9 +42,10 @@ export const Detail = () => {
 		position: 'fixed',
 		display: `${successDisplay === true ? 'block' : 'none'}`,
 		zIndex: '2',
-		left: '75%',
-		top: '89%',
-		width: '200px',
+		right: '8%',
+		bottom: '2%',
+		width: '300px',
+		textAlign: 'center',
 	};
 
 	return (
@@ -82,7 +83,7 @@ export const Detail = () => {
 				</div>
 				<Alert
 					style={SuccessAlertStyle}
-					message='Added to favorite'
+					message='Added to favorite jobs'
 					type='success'
 					showIcon
 				/>
@@ -95,7 +96,7 @@ export const Detail = () => {
 						backgroundColor: '#2F4F4F',
 						marginRight: '140px',
 						float: 'right',
-						display: `${onJob === true ? 'block' : 'none'}`,
+						display: `${onJob === true && successDisplay === false ? 'block' : 'none'}`,
 					}}
 					onClick={() => (
 						ALertTimeout(), setSuccessDisplay(true), AddJobToFavoriteList()
