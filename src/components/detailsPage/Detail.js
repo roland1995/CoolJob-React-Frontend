@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { JobDetailContext } from '../../Contexts/JobDetailContext';
 import { FavoriteJobContext } from '../../Contexts/FavoriteJobContext';
 import 'antd/dist/antd.css';
-import { Layout, Image, Button } from 'antd';
+import { Layout, Image, Button, Alert } from 'antd';
 import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 import { OnJobContext } from '../../Contexts/OnJobContext';
 
@@ -13,7 +13,8 @@ export const Detail = () => {
 	const { Header, Footer, Content } = Layout;
 	const { detail } = useContext(JobDetailContext);
 	const [favoriteJobs, setFavoriteJobs] = useContext(FavoriteJobContext);
-	const [onJob, setOnJob] = useContext(OnJobContext);
+	const [onJob] = useContext(OnJobContext);
+	const [successDisplay, setSuccessDisplay] = useState(false);
 
 	const StyleImage = {
 		display: 'block',
@@ -31,7 +32,21 @@ export const Detail = () => {
 		setFavoriteJobs([...favoriteJobs.filter((job) => job.id !== detail.id), detail]);
 	};
 
-	console.log(favoriteJobs);
+	const ALertTimeout = () => {
+		setTimeout(() => {
+			setSuccessDisplay(false);
+		}, 2000);
+	};
+
+	const SuccessAlertStyle = {
+		position: 'fixed',
+		display: `${successDisplay === true ? 'block' : 'none'}`,
+		zIndex: '2',
+		left: '75%',
+		top: '89%',
+		width: '200px',
+	};
+
 	return (
 		<Layout>
 			<Header style={{ color: '#F5FFFA', backgroundColor: '#000080' }}>
@@ -65,6 +80,12 @@ export const Detail = () => {
 					<h4>descritpiton:</h4>
 					<p dangerouslySetInnerHTML={{ __html: detail.description }} />
 				</div>
+				<Alert
+					style={SuccessAlertStyle}
+					message='Added to favorite'
+					type='success'
+					showIcon
+				/>
 			</Content>
 			<Footer>
 				Added at : {detail.created_at} {onJob === true}
@@ -76,7 +97,9 @@ export const Detail = () => {
 						float: 'right',
 						display: `${onJob === true ? 'block' : 'none'}`,
 					}}
-					onClick={() => AddJobToFavoriteList()}
+					onClick={() => (
+						ALertTimeout(), setSuccessDisplay(true), AddJobToFavoriteList()
+					)}
 				>
 					Add to favorites
 				</Button>

@@ -26,10 +26,6 @@ export const FavoriteBox = () => {
 		background-color: black;
 	`;
 
-	const Div = styled.div`
-		position: fixed;
-	`;
-
 	return (
 		<MainDiv>
 			<StyledDiv>
