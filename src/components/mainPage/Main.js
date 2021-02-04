@@ -3,20 +3,19 @@ import styled from 'styled-components';
 import logo from '../../resources/logo.jpg';
 
 const LogoDiv = styled.div`
-	background: url(${logo});
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url(${logo});
+	width: 100%;
 	height: 100vh;
 `;
 
 const P = styled.p`
-	font-size: 30px;
 	color: orange;
 	padding: 20px;
 	text-align: center;
-	&.justify {
-		text-align: justify;
-		padding-top: 0px;
-		padding-bottom: 0px;
-	}
+	font-size: 3.5vw;
 `;
 
 export const Main = () => {
