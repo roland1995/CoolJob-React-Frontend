@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Card, Col } from 'antd';
 import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 import { JobDetailContext } from '../../Contexts/JobDetailContext';
+import { OnJobContext } from '../../Contexts/OnJobContext';
 
 export const JobCard = (props) => {
 	const [value, setValue] = useContext(DetailVisibilityContext);
 	const [detail, setDetail] = useContext(JobDetailContext);
+	const [onJob] = useContext(OnJobContext);
 	const { Meta } = Card;
 
 	const StyledImage = styled.img`
@@ -23,17 +25,16 @@ export const JobCard = (props) => {
 	return (
 		<Col style={{ padding: '15px' }} span={6}>
 			<Link
-				to={'/jobs/detail/' + props.id}
 				onClick={() => (
-					value === true ? setValue(false) : setValue(true),
-					setDetail(props)
+					value === true ? setValue(false) : setValue(true), setDetail(props)
 				)}
+				to={onJob == true ? '/jobs/detail/' + props.id : '/favorite/detail/' + props.id}
 			>
 				<Card
 					headStyle={{ textAlign: 'center' }}
 					hoverable
 					style={{ width: 280, height: 300 }}
-					cover={<StyledImage alt='example' src={props.logo} />}
+					cover={<StyledImage alt='example' src={props.company_logo} />}
 					title={props.location}
 				>
 					<Meta
