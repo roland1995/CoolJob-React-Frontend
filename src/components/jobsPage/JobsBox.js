@@ -7,20 +7,20 @@ import DetailBox from '../detailsPage/DetailBox';
 import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 
 export const JobsBox = () => {
-	const { value } = useContext(DetailVisibilityContext);
+	const { visible } = useContext(DetailVisibilityContext);
 
 	const StyledDiv = styled.div`
 		width: 85%;
 		float: right;
 	`;
 	const DetailDiv = styled.div`
-		display: ${value ? 'block' : 'none'};
+		display: ${visible ? 'block' : 'none'};
 	`;
 	const JobsDiv = styled.div`
 		padding: 15px;
 		background: #ececec;
 
-		display: ${value ? 'none' : 'block'};
+		display: ${visible ? 'none' : 'block'};
 	`;
 
 	const Div = styled.div`

@@ -6,20 +6,20 @@ import DetailBox from '../detailsPage/DetailBox';
 import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 
 export const FavoriteBox = () => {
-	const [value] = useContext(DetailVisibilityContext);
+	const { visible } = useContext(DetailVisibilityContext);
 
 	const StyledDiv = styled.div`
 		width: 100%;
 		float: right;
 	`;
 	const DetailDiv = styled.div`
-		display: ${value ? 'block' : 'none'};
+		display: ${visible ? 'block' : 'none'};
 	`;
 	const FavoriteDiv = styled.div`
 		padding: 15px;
 		background: #ececec;
 
-		display: ${value ? 'none' : 'block'};
+		display: ${visible ? 'none' : 'block'};
 	`;
 
 	const MainDiv = styled.div`
