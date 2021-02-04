@@ -68,20 +68,39 @@ export const Detail = () => {
 				</div>
 			</Content>
 			<Footer>
-				Added at : {detail.created_at}{' '}
+				Added at : {detail.created_at} {onJob === true}
 				<Button
 					style={{
 						color: 'white',
 						backgroundColor: '#2F4F4F',
 						marginRight: '140px',
 						float: 'right',
+						display: `${onJob === true ? 'block' : 'none'}`,
 					}}
-					onClick={() =>
-						onJob === true ? AddJobToFavoriteList() : DeleteJobFromFavoriteList()
-					}
+					onClick={() => AddJobToFavoriteList()}
 				>
-					{onJob === true ? 'Add to favorites' : 'Delete from favorites'}
+					Add to favorites
 				</Button>
+				<Link
+					onClick={() =>
+						visibility === true ? setVisibility(false) : setVisibility(true)
+					}
+					to={'/favorite'}
+					style={{ display: `${onJob === true ? 'none' : 'block'}` }}
+				>
+					<Button
+						style={{
+							color: 'white',
+							backgroundColor: '#2F4F4F',
+							marginRight: '140px',
+							float: 'right',
+							display: `${onJob === true ? 'none' : 'block'}`,
+						}}
+						onClick={() => DeleteJobFromFavoriteList()}
+					>
+						Delete from favorites
+					</Button>
+				</Link>
 			</Footer>
 		</Layout>
 	);
