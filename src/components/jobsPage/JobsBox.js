@@ -23,21 +23,16 @@ export const JobsBox = () => {
 		display: ${value ? 'none' : 'block'};
 	`;
 
-	const MainDiv = styled.div`
-		background-color: black;
-	`;
-
 	const Div = styled.div`
 		position: fixed;
+		float: left;
 	`;
 
 	return (
-		<MainDiv>
-			<div style={{ float: 'left' }}>
-				<Div>
-					<FilterBar />
-				</Div>
-			</div>
+		<React.Fragment>
+			<Div>
+				<FilterBar />
+			</Div>
 			<StyledDiv>
 				<DetailDiv>
 					<DetailBox />
@@ -47,7 +42,7 @@ export const JobsBox = () => {
 				</JobsDiv>
 			</StyledDiv>
 			<BackTop />
-		</MainDiv>
+		</React.Fragment>
 	);
 };
 export default JobsBox;
