@@ -35,7 +35,8 @@ export const FilterBar = () => {
 	);
 
 	const StyledMenu = styled(Menu)`
-	width = 250px`;
+		width: 250px;
+	`;
 
 	const P = styled.p`
 		font-size: 24px;
@@ -96,9 +97,7 @@ export const FilterBar = () => {
 						}}
 						options={optionsLocation}
 						filterOption={(inputValue, option) =>
-							option.value
-								.toUpperCase()
-								.indexOf(inputValue.toUpperCase()) !== -1
+							option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
 						}
 					>
 						<Input.Search size='large' placeholder='Location' />
@@ -113,9 +112,7 @@ export const FilterBar = () => {
 						}}
 						options={optionsCompany}
 						filterOption={(inputValue, option) =>
-							option.value
-								.toUpperCase()
-								.indexOf(inputValue.toUpperCase()) !== -1
+							option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
 						}
 					>
 						<Input.Search size='large' placeholder='Company' />
@@ -130,9 +127,7 @@ export const FilterBar = () => {
 						}}
 						options={optionsPositions}
 						filterOption={(inputValue, option) =>
-							option.value
-								.toUpperCase()
-								.indexOf(inputValue.toUpperCase()) !== -1
+							option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
 						}
 					>
 						<Input.Search size='large' placeholder='Position' />
