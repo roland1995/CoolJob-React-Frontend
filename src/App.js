@@ -11,6 +11,7 @@ import Main from './components/mainPage/Main';
 import JobsBox from './components/jobsPage/JobsBox';
 import FavoriteBox from './components/favoritePage/FavoriteBox';
 import JobDetailProvider from './Contexts/JobDetailContext';
+import Add from './components/addAdvertisement/Add';
 
 const App = () => {
 	return (
@@ -32,6 +33,7 @@ const App = () => {
 											<Route path='/main' component={Main} />
 											<Route path='/jobs' component={JobsBox} />
 											<Route path='/favorite' component={FavoriteBox} />
+											<Route path='/add' component={Add} />
 										</div>
 									</div>
 								</JobProvider>

@@ -36,6 +36,9 @@ export const NavBar = () => {
 							Favorites
 						</Link>
 					</Menu.Item>
+					<Menu.Item key='4'>
+						<Link to='/add'>Add advertisement</Link>
+					</Menu.Item>
 				</Menu>
 			</StickyHeader>
 		</Header>
