@@ -80,6 +80,10 @@ export const FilterBar = React.memo(() => {
 		setFilteredJobs(filteredJobs);
 	};
 
+	function resetFilters() {
+		setFilteredJobs(jobs);
+	}
+
 	return (
 		<StyledMenu>
 			<Div>
@@ -146,6 +150,18 @@ export const FilterBar = React.memo(() => {
 					<Input.Search size='large' placeholder='Position' />
 				</AutoComplete>
 			</Div>
+			<div>
+				<button
+					style={{
+						width: 100,
+						height: 25,
+						marginLeft: 10,
+					}}
+					onClick={resetFilters}
+				>
+					Reset Filters
+				</button>
+			</div>
 		</StyledMenu>
 	);
 });
