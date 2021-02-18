@@ -4,7 +4,7 @@ import JobCard from '../jobsPage/JobCard';
 import { Row } from 'antd';
 
 export const FavoriteList = () => {
-	const [favoriteJobs] = useContext(FavoriteJobContext);
+	const { favoriteJobs } = useContext(FavoriteJobContext);
 
 	return (
 		<Row gutter={16}>

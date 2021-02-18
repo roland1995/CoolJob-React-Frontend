@@ -70,7 +70,7 @@ function makeId(length) {
 }
 
 export const Add = () => {
-	const { Header, Footer, Content } = Layout;
+	const { Footer, Content } = Layout;
 
 	return (
 		<Layout>

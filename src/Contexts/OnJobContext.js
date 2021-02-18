@@ -5,7 +5,7 @@ export const OnJobContext = createContext();
 export const OnJobProvider = (props) => {
 	const [onJob, setOnJob] = useState(true);
 	return (
-		<OnJobContext.Provider value={[onJob, setOnJob]}>{props.children}</OnJobContext.Provider>
+		<OnJobContext.Provider value={{ onJob, setOnJob }}>{props.children}</OnJobContext.Provider>
 	);
 };
 

@@ -4,10 +4,15 @@ import { GetApiData } from '../hook/GetApiData';
 export const FavoriteJobContext = createContext();
 
 export const FavoriteJobProvider = (props) => {
-	const [favoriteJob, setFavoriteJob] = useState([]);
+	const [favoriteJobs, setFavoriteJobs] = useState([]);
+
+	function ReloadFavoriteJobs() {
+		const [fetchData] = GetApiData('https://localhost:44318/api/Favorites');
+		setFavoriteJobs(fetchData);
+	}
 
 	return (
-		<FavoriteJobContext.Provider value={[favoriteJob, setFavoriteJob]}>
+		<FavoriteJobContext.Provider value={{ favoriteJobs, ReloadFavoriteJobs }}>
 			{props.children}
 		</FavoriteJobContext.Provider>
 	);

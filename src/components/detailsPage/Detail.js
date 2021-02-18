@@ -1,19 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { JobDetailContext } from '../../Contexts/JobDetailContext';
-import { FavoriteJobContext } from '../../Contexts/FavoriteJobContext';
 import 'antd/dist/antd.css';
 import { Layout, Image, Button, Alert } from 'antd';
-import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 import { OnJobContext } from '../../Contexts/OnJobContext';
+import { PostApiData } from '../../hook/PostApiData';
+import { DeleteApiData } from '../../hook/DeleteApiData';
 
 export const Detail = () => {
-	const { visible } = useContext(DetailVisibilityContext);
-	const { setVisible } = useContext(DetailVisibilityContext);
 	const { Header, Footer, Content } = Layout;
 	const { detail } = useContext(JobDetailContext);
-	const [favoriteJobs, setFavoriteJobs] = useContext(FavoriteJobContext);
-	const [onJob] = useContext(OnJobContext);
+	const { onJob } = useContext(OnJobContext);
 	const [successDisplay, setSuccessDisplay] = useState(false);
 
 	const StyleImage = {
@@ -24,12 +21,11 @@ export const Detail = () => {
 		width: '500px',
 	};
 
-	const DeleteJobFromFavoriteList = () => {
-		setFavoriteJobs([...favoriteJobs.filter((job) => job.id !== detail.id)]);
-	};
-
 	const AddJobToFavoriteList = () => {
-		setFavoriteJobs([...favoriteJobs.filter((job) => job.id !== detail.id), detail]);
+		PostApiData(detail, 'https://localhost:44318/api/Favorites');
+	};
+	const DeleteJobFromFavoriteList = () => {
+		DeleteApiData(`https://localhost:44318/api/Favorites/${detail.id}`);
 	};
 
 	const ALertTimeout = () => {
@@ -59,7 +55,6 @@ export const Detail = () => {
 							marginTop: '15px',
 							float: 'right',
 						}}
-						onClick={() => (visible === true ? setVisible(false) : setVisible(true))}
 					>
 						{onJob === true ? 'Back to Jobs' : 'Back to favorites'}
 					</Button>
@@ -98,17 +93,15 @@ export const Detail = () => {
 						float: 'right',
 						display: `${onJob === true && successDisplay === false ? 'block' : 'none'}`,
 					}}
-					onClick={() => (
-						ALertTimeout(), setSuccessDisplay(true), AddJobToFavoriteList()
-					)}
+					onClick={() => {
+						ALertTimeout();
+						setSuccessDisplay(true);
+						AddJobToFavoriteList();
+					}}
 				>
 					Add to favorites
 				</Button>
-				<Link
-					onClick={() => (visible === true ? setVisible(false) : setVisible(true))}
-					to={'/favorite'}
-					style={{ display: `${onJob === true ? 'none' : 'block'}` }}
-				>
+				<Link to='/favorite' style={{ display: `${onJob === true ? 'none' : 'block'}` }}>
 					<Button
 						style={{
 							color: 'white',

@@ -1,18 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Card, Col } from 'antd';
-import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 import { JobDetailContext } from '../../Contexts/JobDetailContext';
-import { OnJobContext } from '../../Contexts/OnJobContext';
 import { GetApiData } from '../../hook/GetApiData';
 
 export const JobCard = (props) => {
-	const { visible } = useContext(DetailVisibilityContext);
-	const { setVisible } = useContext(DetailVisibilityContext);
 	const { setDetail } = useContext(JobDetailContext);
-	const [onJob] = useContext(OnJobContext);
 	const { Meta } = Card;
 
 	const StyledImage = styled.img`
@@ -28,12 +23,7 @@ export const JobCard = (props) => {
 
 	return (
 		<Col style={{ padding: '15px' }} span={6}>
-			<Link
-				onClick={() => (
-					visible === true ? setVisible(false) : setVisible(true), setDetail(fetchData)
-				)}
-				to={onJob === true ? '/jobs/detail/' + props.id : '/favorite/detail/' + props.id}
-			>
+			<Link onClick={() => setDetail(fetchData)} to={'/detail/' + props.id}>
 				<Card
 					headStyle={{ textAlign: 'center' }}
 					hoverable
