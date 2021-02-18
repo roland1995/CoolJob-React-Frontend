@@ -6,6 +6,7 @@ import { Card, Col } from 'antd';
 import { DetailVisibilityContext } from '../../Contexts/DetailVisibilityContext';
 import { JobDetailContext } from '../../Contexts/JobDetailContext';
 import { OnJobContext } from '../../Contexts/OnJobContext';
+import { GetApiData } from '../../hook/GetApiData';
 
 export const JobCard = (props) => {
 	const { visible } = useContext(DetailVisibilityContext);
@@ -23,11 +24,13 @@ export const JobCard = (props) => {
 		margin-right: auto;
 	`;
 
+	const [fetchData] = GetApiData(`https://localhost:44318/api/Jobs/${props.id}`);
+
 	return (
 		<Col style={{ padding: '15px' }} span={6}>
 			<Link
 				onClick={() => (
-					visible === true ? setVisible(false) : setVisible(true), setDetail(props)
+					visible === true ? setVisible(false) : setVisible(true), setDetail(fetchData)
 				)}
 				to={onJob === true ? '/jobs/detail/' + props.id : '/favorite/detail/' + props.id}
 			>
