@@ -75,7 +75,7 @@ export const Detail = () => {
 					<h3>Job title: {detail.type}</h3>
 					<h3>Job location: {detail.location}</h3>
 					<h4>
-						= company page: <a href={detail.company_url}>{detail.company_url}</a>
+						company page: <a href={detail.company_url}>{detail.company_url}</a>
 					</h4>
 					<p dangerouslySetInnerHTML={{ __html: detail.apply }} />
 					<h4>descritpiton:</h4>
