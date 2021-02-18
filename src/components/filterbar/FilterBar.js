@@ -4,6 +4,7 @@ import { Menu, Input, AutoComplete } from 'antd';
 import styled from 'styled-components';
 import { FilteredJobContext } from '../../Contexts/FilteredJobsContext';
 import { JobContext } from '../../Contexts/JobContext';
+import { GetApiData } from '../../hook/GetApiData';
 
 export const FilterBar = React.memo(() => {
 	const { jobs } = useContext(JobContext);
@@ -13,10 +14,14 @@ export const FilterBar = React.memo(() => {
 		setFilteredJobs(jobs);
 	}, [setFilteredJobs, jobs]);
 
-	const uniqueCompanies = [...new Set(jobs.map((job) => job.company))];
-	const uniqueTypes = [...new Set(jobs.map((job) => job.type))];
-	const uniquePositions = [...new Set(jobs.map((job) => job.title))];
-	const uniqueLocations = [...new Set(jobs.map((job) => job.location))];
+	const [fetchCompany] = GetApiData('https://localhost:44318/api/Filter/Company');
+	const uniqueCompanies = fetchCompany;
+	const [fetchType] = GetApiData('https://localhost:44318/api/Filter/Type');
+	const uniqueTypes = fetchType;
+	const [fetchTitle] = GetApiData('https://localhost:44318/api/Filter/Title');
+	const uniquePositions = fetchTitle;
+	const [fetchLocation] = GetApiData('https://localhost:44318/api/Filter/Location');
+	const uniqueLocations = fetchLocation;
 
 	const optionsPositions = [];
 	const optionsType = [];
