@@ -127,7 +127,7 @@ export const Add = () => {
 						</Div>
 
 						<Div>
-							<Label for='how_to_apply'>How to how_to_apply</Label>
+							<Label for='how_to_apply'>How to apply</Label>
 							<br />
 							<Input type='text' id='how_to_apply' onChange={handleChange} />
 						</Div>
